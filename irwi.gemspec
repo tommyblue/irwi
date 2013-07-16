@@ -15,13 +15,14 @@ Gem::Specification.new do |s|
   # Gem dependencies
   s.add_dependency "diff-lcs", ">= 1.1.2"
 
-  s.add_dependency "activerecord", ">= 3.0.0"
-  s.add_dependency "activesupport", ">= 3.0.0"
-  s.add_dependency "actionpack", ">= 3.0.0"
+  s.add_dependency "activerecord", ">= 4.0.0"
+  s.add_dependency "activesupport", ">= 4.0.0"
+  s.add_dependency "actionpack", ">= 4.0.0"
   s.add_dependency "rails_autolink", ">= 1.0" # TODO should be optional
+  s.add_dependency "RedCloth"
 
   # Development dependencies
-  s.add_development_dependency "rspec", ">=2.0"
+  s.add_development_dependency "rspec", "~> 2.14.1"
   s.add_development_dependency "sqlite3"
 
   # Gem files
@@ -31,5 +32,4 @@ Gem::Specification.new do |s|
 
   # Info
   s.rdoc_options = ["--line-numbers", "--inline-source", "--title", "Irwi", "--main", "README.rdoc"]
-
 end

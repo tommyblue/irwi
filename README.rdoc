@@ -8,22 +8,35 @@ Irwi is a Ruby on Rails 3 plugin which adds wiki functionality to your applicati
 
 == Installation
 
-Add to your Gemfile:
+=== Rails 4.x
 
-  gem 'irwi', :git => 'git://github.com/alno/irwi.git'
+For Rails 4.x apps, add to your Gemfile:
+
+  gem 'irwi', '~> 0.5.0'
+
+Then in your application directory call:
+
+  rails generate irwi_wiki
+
+=== Rails 3.x
+
+If you are using Rails 3.x, add:
+
+  gem 'irwi', '~> 0.4.2'
 
 Then in your application directory call:
 
   script/generate irwi_wiki
 
-It will generate:
+The generator will create:
+
 * WikiPageController to serve wiki pages
 * WikiPage model to represent page
 * Migration to prepare database
 
-Also it will add to your <tt>routes.rb</tt> something like:
+Also it will add to your <tt>config/routes.rb</tt> the wiki route (change it at your will):
 
-  map.wiki_root '/wiki'
+  wiki_root '/wiki'
 
 == Wiki syntax (links to other pages)
 
@@ -47,7 +60,7 @@ Following helpers are defined by default and you may replace them with you own:
 Configuration options are acessed via <tt>Irwi.config</tt> object. Currently supported options:
 * <tt>user_class_name</tt> - Name of user model class. By default - 'User'
 
- Define a method named 'current_user' method on WikiPagesController that returns the object for the current user 
+ Define a method named 'current_user' method on WikiPagesController that returns the object for the current user
 
 
 * <tt>formatter</tt> - Formatter instance, which process wiki content before output. It should have method <tt>format</tt>, which gets a string and returns it formatted. By default instance of <tt>Irwi::Formatters::RedCloth</tt> is used (requires RedCloth gem). Other built-in formatter is <tt>Irwi::Formatters::BlueCloth</tt> (requires BlueCloth gem). Option accepts formatter instance, not class, so correct usage is:
